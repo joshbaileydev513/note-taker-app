@@ -1,18 +1,26 @@
+// Import of the required packages
 const express = require('express');
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+
+// Built in node packages called path
+const path = require('path');
+
+// Helper file to append/write/read input from user
+const { readAndAppend, writeToFile, readFromFile } = require('./Develop/helpers/fsUtils');
 
 const app = express();
 
 // creating the const port variable
 const PORT = process.env.PORT || 3001;
 
-// Middleware for parsing JSON and urlencoded form data
+// Middleware for parsing JSON and urlencoded form data while also point at the pub folder
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 // GET Route for notes.html file
-app.get('/', (req, res) =>
+app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
@@ -23,27 +31,27 @@ app.get('/*', (req, res) =>
 
 // GET Route for retrieving all the saved notes
 app.get('/api/notes', (req, res) => {
-    console.info(`${req.method} request received for tips`);
-    readFromFile('./db/.json').then((data) => res.json(JSON.parse(data)));
+    const savedNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    res.json(savedNotes);
   });
 
 // POST Route for a new note to save
 app.post('/api/notes', (req, res) => {
     console.info(`${req.method} request received to add a new note`);
   
-    const { note_id, title, text } = req.body;
+    const { title, text } = req.body;
   
     if (req.body) {
       const newNote = {
-        note_id: uuid(),
-        title: req.body.title,
-        text: req.body.text,
+        note_id: uuidv4(),
+        title,
+        text,
       };
   
       readAndAppend(newNote, './db/db.json');
-      res.json(`Note added successfully!`);
+      res.json(`Note added- Hooray!`);
     } else {
-      res.error('Error in adding note');
+      res.error('Error 404 - Note not added :(');
     }
   });  
 
