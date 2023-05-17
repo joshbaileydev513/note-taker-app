@@ -1,6 +1,71 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Title",
+        "text": "Test text"
+    },
+    {
+        "note_id": "04d4e701-04fc-435d-b8ce-a9af77dd9223",
+        "title": "Stuff to Fix",
+        "text": "Fix write to file and save function?"
+    },
+    {
+        "note_id": "296cdf05-08a5-453d-9711-93bec0ba82c7",
+        "title": "Test note 2",
+        "text": "test test\n"
+    },
+    {
+        "note_id": "0d468b57-2264-48a6-aca0-2aff0b502356",
+        "title": "test",
+        "text": "test"
+    },
+    {
+        "note_id": "012796f5-f5e8-4a78-b9d0-d66d069d44c8",
+        "title": "josh bailey",
+        "text": "joshua bailey is cool"
+    },
+    {
+        "note_id": "1b093604-e3e1-493a-bd5e-83d05376c35e",
+        "title": "steve note",
+        "text": "steve is cool"
+    },
+    {
+        "note_id": "dd2f20b5-f8ae-4f04-8e53-7e556e9b888b",
+        "title": "hello steve",
+        "text": "text text text"
+    },
+    {
+        "note_id": "a28b6260-5328-4055-8b60-b7b961d5e3bd",
+        "title": "new note",
+        "text": "note new"
+    },
+    {
+        "note_id": "3fd6d988-6498-4a1c-bbff-b7db68a8b4bd",
+        "title": "test 3",
+        "text": "test 657"
+    },
+    {
+        "note_id": "a1847ef7-690c-4668-b66e-4919b055d07b",
+        "title": "josh is great",
+        "text": "idk is he ?"
+    },
+    {
+        "note_id": "e94a7ce6-08b9-4280-b357-32f9e822a4ee",
+        "title": "testestest",
+        "text": "tttttt"
+    },
+    {
+        "note_id": "b11bd818-0a44-4a4e-801b-91b92217e2d5",
+        "title": "read&append",
+        "text": "r&A"
+    },
+    {
+        "note_id": "c18b0d91-c291-45b2-b86e-c2a14a2a597c",
+        "title": "gahhhhh",
+        "text": "wtheckk"
+    },
+    {
+        "note_id": "3509c866-0848-4615-9193-f7756a4c41eb",
+        "title": "sdfsdfsdf",
+        "text": "sdfsdfsfsdfsdf"
     }
 ]

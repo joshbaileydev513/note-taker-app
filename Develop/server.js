@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
 // Helper file to append/write/read input from user
-const { readAndAppend, writeToFile, readFromFile } = require('./Develop/helpers/fsUtils');
+const { readAndAppend, writeToFile, readFromFile } = require('./helpers/fsUtils');
 
 const app = express();
 
@@ -21,17 +21,18 @@ app.use(express.static('public'));
 
 // GET Route for notes.html file
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
+  res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
 // GET Route for index.html file
 app.get('/*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+  res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
 // GET Route for retrieving all the saved notes
 app.get('/api/notes', (req, res) => {
     const savedNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    console.log(savedNotes);
     res.json(savedNotes);
   });
 
