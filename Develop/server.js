@@ -55,6 +55,19 @@ app.post('/api/notes', (req, res) => {
 });
 
 // Delete Route for deleting a saved note
+app.delete('/api/notes/:id', async (req, res) => {
+  let db = JSON.parse(await readFromFile("./db/db.json", 'utf8'));
+  let noteID = req.params.id
+  let indexof = db.findIndex(item => item.note_id === noteID)
+  if (indexof >= 0) {
+    console.log(indexof);
+    db.splice(indexof, 1)
+    await writeToFile('./db/db.json', db)
+    res.status(204).send()
+  } else {
+    res.status(404).send('Did not delete :/ 404')
+  }
+});
 
 app.get('/*', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
