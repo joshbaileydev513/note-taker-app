@@ -25,37 +25,41 @@ app.get('/notes', (req, res) =>
 );
 
 // GET Route for index.html file
+
+// GET Route for retrieving all the saved notes
+app.get('/api/notes', async (req, res) => {
+  let db = JSON.parse(await readFromFile("./db/db.json", 'utf8'));
+  res.json(db);
+});
+
+// POST Route for a new note to save
+app.post('/api/notes', (req, res) => {
+  console.info(`${req.method} request received to add a new note`);
+  
+  const { title, text } = req.body;
+  
+  if (req.body) {
+    const newNote = {
+      note_id: uuidv4(),
+      title,
+      text,
+    };
+    
+    console.log(newNote);
+    
+    readAndAppend(newNote, './db/db.json');
+    res.json(`Note added- Hooray!`);
+  } else {
+    res.error('Error 404 - Note not added :(');
+  }
+});
+
+// Delete Route for deleting a saved note
+
 app.get('/*', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
-// GET Route for retrieving all the saved notes
-app.get('/api/notes', (req, res) => {
-    const savedNotes = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
-    console.log(savedNotes);
-    res.json(savedNotes);
-  });
-
-// POST Route for a new note to save
-app.post('/api/notes', (req, res) => {
-    console.info(`${req.method} request received to add a new note`);
-  
-    const { title, text } = req.body;
-  
-    if (req.body) {
-      const newNote = {
-        note_id: uuidv4(),
-        title,
-        text,
-      };
-  
-      readAndAppend(newNote, './db/db.json');
-      res.json(`Note added- Hooray!`);
-    } else {
-      res.error('Error 404 - Note not added :(');
-    }
-  });  
-
 app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
+console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
