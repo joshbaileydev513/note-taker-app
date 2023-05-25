@@ -2,12 +2,12 @@
 # Note Taker App
 
 ## Table of Contents
-- [Project Description](#Description)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [License](#License)
-- [Contributing](#Contributing)
-- [Questions](#Questions)
+- [Project Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](lLicense)
+- [Contributing](#contributing)
+- [Questions](#questions)
 
 ## Description
 For this Week 11 Challenge we were tasked with creating a Note Taker App that can be used to write and save notes. Those saved notes will be stored in our database within the db folder, and can be deleted when you click on the red trash can button!
