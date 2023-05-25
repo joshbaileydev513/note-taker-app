@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# Note Taker App Generator
+# Note Taker App
 
 ## Table of Contents
 - [Project Description](#Description)
